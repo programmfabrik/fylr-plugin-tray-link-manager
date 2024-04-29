@@ -1,0 +1,45 @@
+plugin:
+  name: tray-link-manager
+  version: 1.0
+  l10n: l10n/TrayLinkManager.csv
+  displayname:
+    de-DE: Tray-Links-Verwalter
+    en-US: Tray-Link-Manager
+  info:
+    de-DE: Tray-Links für die Kopfzeile erstellen und verwalten
+    en-US: Create and manage tray-links for app-header
+  server:
+    api-version:
+      require: 1
+  webfrontend:
+    url: TrayLinkManager.js
+    css: TrayLinkManager.css
+
+
+base_url_prefix: "webfrontend"
+
+        
+base_config:
+  - name: Tray-Link-Manager
+    group: tray_link_manager
+    parameters:
+      templates:
+        type: table
+        fields:
+          - name: name
+            type: text-l10n
+            position: 0
+          - name: url
+            type: text
+            position: 1
+          - name: icon
+            type: text
+            position: 2
+          - name: groups
+            type: table
+            fields:
+              - name: group
+                type: int
+                plugin_type: group_easydb_select
+                position: 0
+            position: 3

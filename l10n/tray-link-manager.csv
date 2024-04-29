@@ -1,0 +1,8 @@
+key,de-DE,en-US
+server.config.name.system.Tray-Link-Manager,Tray-Link-Manager,Tray-Link-Manager
+server.config.parameter.system.Tray-Link-Manager.templates.label,Einstellungen,Einstellungen
+server.config.parameter.system.Tray-Link-Manager.templates.name.label,Label,Label
+server.config.parameter.system.Tray-Link-Manager.templates.url.label,URL (ohne Domain),URL (without domain)
+server.config.parameter.system.Tray-Link-Manager.templates.groups.label,Erlaubte Gruppen, Allowed groups
+server.config.parameter.system.Tray-Link-Manager.templates.groups.group.label,Gruppe,Group
+server.config.parameter.system.Tray-Link-Manager.templates.icon.label,Icon (https://fontawesome.com/v4/icons/),Icon (https://fontawesome.com/v4/icons/)

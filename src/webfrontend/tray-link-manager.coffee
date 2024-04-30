@@ -29,6 +29,10 @@ class TOBIExampleTrayApp extends TrayApp
                     path = '/' + path
                 pathParts = path.split('/')
                 pathFirstPart = pathParts[1];
+                # if url has parameters
+                if pathFirstPart.indexOf('?') != -1
+                    pathFirstPartParts = pathFirstPart.split('?')
+                    pathFirstPart = pathFirstPartParts[0]
                 if appPathNamesConcordance[pathFirstPart]
                     # get allowed groups from template
                     templateGroups = template.groups.map((group) => group.group);

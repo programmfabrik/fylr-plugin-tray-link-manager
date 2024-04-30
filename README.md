@@ -25,6 +25,8 @@ Github has an overview page to get a list of [all release](https://github.com/pr
   * icon (e.g. "fa-superpowers")
   * groups (choose from select)
 
+The URL must always be a URL that can also be accessed via the main menu on the left. Otherwise the tray entry will not be displayed. So Url = root menu link without domain
+
 ## sources
 
 The source code of this plugin is managed in a git repository at <https://github.com/programmfabrik/fylr-plugin-tray-link-manager>.

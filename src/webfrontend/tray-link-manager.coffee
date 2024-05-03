@@ -1,4 +1,4 @@
-class TOBIExampleTrayApp extends TrayApp
+class TrayLinkManagerApp extends TrayApp
     is_allowed: =>
         true
 
@@ -56,4 +56,4 @@ class TOBIExampleTrayApp extends TrayApp
                         CUI.dom.append(@display, button)
 
 ez5.session_ready ->
-    ez5.tray.registerApp(new TOBIExampleTrayApp())
+    ez5.tray.registerApp(new TrayLinkManagerApp())

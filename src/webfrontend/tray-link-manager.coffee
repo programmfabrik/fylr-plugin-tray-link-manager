@@ -1,11 +1,28 @@
 class TrayLinkManagerApp extends TrayApp
-    
+            
     is_allowed: =>
         true
 
     getTrayButtons: =>
         that = @
         buttons = []
+
+        # remove selection if url-switch
+        document.addEventListener('click', (event) ->
+            # is a button in tray menu selected?
+            setTimeout ->
+                if buttons.length > 0
+                    for button in buttons
+                        if button.hasClass('cui-selected tray-link-manager-plugin')
+                            windowPath = window.location.pathname + window.location.search
+                            windowPath = windowPath.replace(/\//g, '')
+                            buttonPath = button.getValue()
+                            buttonPath = buttonPath.replace(/\//g, '')
+                            if windowPath != buttonPath
+                                button.removeClass('cui-selected tray-link-manager-plugin')
+            , 750
+        , true)
+                                
         # get all usergroups
         userGroups = ez5.session.user.getGroups().map((group) => group.id);
         
@@ -16,9 +33,7 @@ class TrayLinkManagerApp extends TrayApp
         # concordance of all pathes and appnames
         appPathNamesConcordance = {}
         appPathNamesConcordance['ShowInMainMenuApp'] = '_Class'
-        
-        #'/ShowInMainMenuApp/fa-adress-book/defaultvalues'
-        
+            
         for app in ez5.rootMenu.__apps
             if app.getPathname() != ''
                 appPathNamesConcordance[app.getPathname().replace('/','')] = app.name
@@ -50,8 +65,13 @@ class TrayLinkManagerApp extends TrayApp
                         button = new LocaButton
                             text: loca_label # FROM CONFIG
                             icon_left: new CUI.Icon(class: icon)
+                            value: template.url
                             onClick: ((template, pathFirstPart, appPathNamesConcordance) =>
-                                () =>
+                                (evt, button) =>
+                                    # mark this button as clicked
+                                    for oneButton in buttons
+                                        oneButton.removeClass('cui-selected tray-link-manager-plugin')
+                                    button.addClass('cui-selected tray-link-manager-plugin')
                                     # default apps?
                                     if pathFirstPart != 'ShowInMainMenuApp'
                                         full_path = window.easydb_base_prefix + template.url

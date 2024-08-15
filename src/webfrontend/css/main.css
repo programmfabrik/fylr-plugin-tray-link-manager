@@ -1,0 +1,7 @@
+.tray-link-manager-plugin.cui-selected {
+    background-color: #ff5724;
+}
+
+.tray-link-manager-plugin.cui-selected .cui-button-center, .tray-link-manager-plugin.cui-selected .cui-button-left {
+    color: white;
+}

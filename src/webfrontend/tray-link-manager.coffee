@@ -15,8 +15,13 @@ class TrayLinkManagerApp extends TrayApp
                     for button in buttons
                         if button.hasClass('cui-selected tray-link-manager-plugin')
                             windowPath = window.location.pathname + window.location.search
-                            windowPath = windowPath.replace(/\//g, '')
                             buttonPath = button.getValue()
+                            if buttonPath.indexOf("ShowInMainMenuApp") != -1
+                                buttonParts = buttonPath.split("/")
+                                buttonPath = buttonParts[buttonParts.length - 1]
+                                windowParts = windowPath.split("/")
+                                windowPath = windowParts[windowParts.length - 1]
+                            windowPath = windowPath.replace(/\//g, '')
                             buttonPath = buttonPath.replace(/\//g, '')
                             if windowPath != buttonPath
                                 button.removeClass('cui-selected tray-link-manager-plugin')

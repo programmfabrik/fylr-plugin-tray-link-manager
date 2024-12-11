@@ -6,3 +6,4 @@ server.config.parameter.system.Tray-Link-Manager.templates.url.label,URL (ohne D
 server.config.parameter.system.Tray-Link-Manager.templates.groups.label,Erlaubte Gruppen, Allowed groups
 server.config.parameter.system.Tray-Link-Manager.templates.groups.group.label,Gruppe,Group
 server.config.parameter.system.Tray-Link-Manager.templates.icon.label,Icon (https://fontawesome.com/v4/icons/),Icon (https://fontawesome.com/v4/icons/)
+Tray-Link-Manager.menu.not_available,Das Menü ist für Sie nicht erreichbar - wenden Sie sich an die Administration,The menu is not available for you - contact the administration

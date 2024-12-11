@@ -38,10 +38,11 @@ class TrayLinkManagerApp extends TrayApp
         # concordance of all pathes and appnames
         appPathNamesConcordance = {}
         appPathNamesConcordance['ShowInMainMenuApp'] = '_Class'
-            
+                
         for app in ez5.rootMenu.__apps
             if app.getPathname() != ''
-                appPathNamesConcordance[app.getPathname().replace('/','')] = app.name
+                if app.is_allowed()
+                    appPathNamesConcordance[app.getPathname().replace('/','')] = app.name
         if baseConfigTemplates
             for template, templateKey in baseConfigTemplates
                 # label (l10n)
@@ -93,8 +94,12 @@ class TrayLinkManagerApp extends TrayApp
                                         window.history["pushState"]({}, null, full_path)
                                         selectedApp = ez5.rootMenu.__apps.find (app) ->
                                             app.name is appPathNamesConcordance[pathFirstPart] and app?.objecttype == objecttype
-                                    ez5.rootMenu.loadApp(selectedApp, false)
-                                    ez5.rootMenu.setActiveApp(selectedApp)
+                                    if selectedApp
+                                        ez5.rootMenu.loadApp(selectedApp, false)
+                                        ez5.rootMenu.setActiveApp(selectedApp)
+                                    else 
+                                        CUI.alert(text: $$('Tray-Link-Manager.menu.not_available'))
+
                             )(template, pathFirstPart, appPathNamesConcordance)
                         buttons.push button
         return buttons

@@ -2,6 +2,7 @@ plugin:
   name: tray-link-manager
   version: 1.0
   l10n: l10n/TrayLinkManager.csv
+  url: https://github.com/programmfabrik/fylr-plugin-tray-link-manager
   displayname:
     de-DE: Tray-Links-Verwalter
     en-US: Tray-Link-Manager
